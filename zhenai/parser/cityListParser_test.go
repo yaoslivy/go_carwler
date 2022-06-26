@@ -1,7 +1,7 @@
 package parser
 
 import (
-	"GoStudy_mk/src/go13/g04/fetcher"
+	"GoStudy_mk/src/go12/g05/fetcher"
 	"testing"
 )
 
