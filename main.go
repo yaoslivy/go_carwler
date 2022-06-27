@@ -8,8 +8,9 @@ import (
 
 func main() {
 	engine.Run(types.Request{
-		Url:       "http://www.zhenai.com/zhenghun", //从征婚网城市列表页面出发
+		Url:       "https://www.7799520.com/jiaou", //从征婚网城市列表页面出发
 		ParseFunc: parser.ParseCityList,
 	})
+	//http://www.7799520.com/user/6056626.html
 
 }

@@ -16,6 +16,7 @@ func Run(seeds ...types.Request) {
 		request := queue[0]
 		queue = queue[1:]
 		bytes, err := fetcher.Fetch(request.Url)
+		//fmt.Println(string(bytes))
 		log.Printf("抓取[%s]", request.Url)
 		if err != nil {
 			log.Printf("抓取[%s]页面出错:[%s]", request.Url, err)
