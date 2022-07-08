@@ -1,8 +1,6 @@
 package scheduler
 
-import (
-	"go_carwler/types"
-)
+import "go_carwler/types"
 
 type SimpleScheduler struct {
 	WorkerChan chan types.Request
@@ -13,5 +11,8 @@ func (s *SimpleScheduler) InitChan(c chan types.Request) {
 }
 
 func (s *SimpleScheduler) Submit(request types.Request) {
-	s.WorkerChan <- request
+	//使用go rountine避免死锁
+	go func() {
+		s.WorkerChan <- request
+	}()
 }

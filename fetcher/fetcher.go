@@ -8,10 +8,12 @@ import (
 	"time"
 )
 
-var rateLimiter = time.Tick(10 * time.Millisecond) //设置成100ms一个tick，也就意味着每秒10个request。保持这个速度去爬，可能就不会被对方的网站限制
+//设置成100ms一个tick，也就意味着每秒10个request。保持这个速度去爬，可能就不会被对方的网站限制
+var rateLimiter = time.Tick(10 * time.Millisecond)
 
 func Fetch(url string) ([]byte, error) {
-	<-rateLimiter //防止爬取过快，被网站给限制了
+	//防止爬取过快，被网站给限制了
+	<-rateLimiter
 
 	client := &http.Client{}
 	newUrl := strings.Replace(url, "http://", "https://", 1)

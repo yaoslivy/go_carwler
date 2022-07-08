@@ -15,8 +15,9 @@ func main() {
 	//http://www.7799520.com/user/6056626.html
 
 	concurrentEngine := engine.ConcurrentEngine{
-		Scheduler:   &scheduler.SimpleScheduler{},
-		WorkerCount: 10,
+		//Scheduler:   &scheduler.SimpleScheduler{},
+		Scheduler:   &scheduler.QueueScheduler{},
+		WorkerCount: 100,
 	}
 	concurrentEngine.Run(types.Request{
 		Url:       "https://www.7799520.com/jiaou", //从征婚网城市列表页面出发
